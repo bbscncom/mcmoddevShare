@@ -1,235 +1,183 @@
----
-layout: home
-title: Jekyll Gitbook Theme
-permalink: /
----
+# Read The Docs Theme for Jekyll and GitHub Pages
 
-Make Jelly site have a GitBook look!
+Port of the Read the Docs theme to Jekyll that can be used with GitHub Pages.
 
-## Demo
+You can preview it in the
+[user documentation](https://carlosperate.github.io/jekyll-theme-rtd):
 
-Live demo on Github Pages: [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)
+![theme screenshot](docs/assets/img/screenshot.png)
 
-[![Jekyll Themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-gitbook/)
+The original [Read The Docs](https://sphinx-rtd-theme.readthedocs.io)
+theme was created for [Sphinx](https://www.sphinx-doc.org/), and so it is
+designed specifically for documentation.
 
-## Why Jekyll with GitBook
+Combined with [GitHub Pages](https://pages.github.com) it's a great and easy
+way to document your projects!
 
-GitBook is an amazing frontend style to present and organize contents (such as book chapters
-and blogs) on Web. The typical to deploy GitBook at [Github Pages][1]
-is building HTML files locally and then push to Github repository, usually to the `gh-pages`
-branch. It's quite annoying to repeat such workload and make it hard for people do version
-control via git for when there are generated HTML files to be staged in and out.
+Check out the [quick start guide]() to see how easy it is to 
 
-This theme takes style definition out of generated GitBook site and provided the template
-for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
-to [Github Pages][1] without generating and uploading HTML bundle every time when there are
-changes to the original repo.
+### 🚧 Warning!
 
-## How to Get Started
+This theme is currently a **Work-In-Progress** but, while some things might be
+broken, it should be already usable.
 
-This theme can be used just as other [Jekyll themes][1] and support [remote theme][12],
-see [the official guide][13] as well.
+Missing features are listed in the GitHub issues with the
+[to-do label](https://github.com/carlosperate/jekyll-theme-rtd/issues?q=is%3Aissue+is%3Aopen+label%3Ato-do),
+and any known issues are listed with the
+[bug label](https://github.com/carlosperate/jekyll-theme-rtd/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
 
-You can introduce this jekyll theme into your own site by either
+Contributions are very welcomed!
 
-- [Fork][3] this repository and add your markdown posts to the `_posts` folder.
-- Use as a remote theme in your [`_config.yml`][14](just like what we do for this
-  site itself),
 
-```yaml
-remote_theme: sighingnow/jekyll-gitbook
+## 🗂️ Readme Contents
+
+This README contains mostly the developer documentation to edit this theme.
+
+To learn how to use this theme for your own website or docs check out the
+[user documentation](https://carlosperate.github.io/jekyll-theme-rtd).
+
+- [🚀 Using this theme with GitHub Pages](#-using-this-theme-with-github-pages)
+- [👩‍💻 Developer Documentation](#-developer-documentation)
+    - [Run in a virtual machine with Vagrant](#run-in-a-virtual-machine-with-vagrant)
+    - [Run locally with Ruby](#run-locally-with-ruby)
+    - [Build the docs using the remote theme](#build-the-docs-using-the-remote-theme)
+    - [Build the docs with MkDocs for comparison](#build-the-docs-with-mkdocs-for-comparison)
+- [👨‍👩‍👧‍👦 Contributing](#-contributing)
+- [⚖️ License](#%EF%B8%8F-license)
+
+
+## 🚀 Using this theme with GitHub Pages
+
+The fastest way to use this theme is with GitHub Pages, check out the
+[Quick Start Guide from the user documentation](https://carlosperate.github.io/jekyll-theme-rtd/quickstart.html).
+
+## 👩‍💻 Developer Documentation
+
+These instructions describe two different ways to to set up your environment to
+develop or edit this theme.
+
+The theme is developed like a normal Jekyll site, and it can serve the
+documentation using the theme source code located here.
+
+### Run in a virtual machine with Vagrant
+
+[Vagrant](https://www.vagrantup.com) provides an easy way to set up and manage
+a Virtual Machine with [VirtualBox](https://www.virtualbox.org). With a single
+command you can automatically create the VM with all the dependencies required
+to build and sever this project.
+
+There is a [Vagrantfile](Vagrantfile) included to run an Ubuntu VM with Ruby
+and Jekyll. To set-up everything and serve the website run:
+
+```bash
+$ vagrant up
 ```
 
-### Deploy Locally with Jekyll Serve
+The first time you run this command it will take a bit longer, as it downloads
+and installs everything. Subsequent runs will be much quicker.
 
-This theme can be ran locally using Ruby and Gemfiles.
+This will serve the website at [http://localhost:4000](http://localhost:4000)
+with a hot-reload enabled, so any changes made on these files will trigger a
+rebuild.
 
-[Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll) - GitHub
+#### Other Vagrant commands
 
-## Full-text search
+To stop the virtual machine first press `Ctrl+C` to end the Jekyll process and
+execute in your terminal:
 
-The search functionality in jekyll-gitbook theme is powered by the [gitbook-plugin-search-pro][5] plugin and is enabled by default.
-
-[https://sighingnow.github.io/jekyll-gitbook/?q=generated](https://sighingnow.github.io/jekyll-gitbook/?q=generated)
-
-## Code highlight
-
-The code highlight style is configurable the following entry in `_config.yaml`:
-
-```yaml
-syntax_highlighter_style: colorful
+```
+$ vagrant halt
 ```
 
-The default code highlight style is `colorful`, the full supported styles can be found from [the rouge repository][6]. Customized
-style can be added to [./assets/gitbook/rouge/](./assets/gitbook/rouge/).
+You can also SSH into the virtual machine with:
 
-## How to generate TOC
-
-The jekyll-gitbook theme leverages [jekyll-toc][4] to generate the *Contents* for the page.
-The TOC feature is not enabled by default. To use the TOC feature, modify the TOC
-configuration in `_config.yml`:
-
-```yaml
-toc:
-    enabled: true
-    h_min: 1
-    h_max: 3
+```
+$ vagrant ssh
 ```
 
-## Google Analytics, etc.
+### Run locally with Ruby
 
-The jekyll-gitboook theme supports embedding the [Google Analytics][7], [CNZZ][8] and [Application Insights][9] website analytical tools with the following
-minimal configuration in `_config.yaml`:
+This website has been developed using Ruby v2.5. You can install the
+dependencies with:
 
-```yaml
-tracker:
-  google_analytics: "<YOUR GOOGLE ANALYTICS KEY, e.g, UA-xxxxxx-x>"
+```bash
+$ gem install bundler
+$ bundle install
 ```
 
-Similarly, CNZZ can be added with the following configuration in `_config.yaml`
+### Build the docs using the remote theme
 
-```yaml
-tracker:
-  cnzz: "<YOUR CNZZ ANALYTICS KEY, e.g., xxxxxxxx>"
+The Jekyll project here is configured with the root of this repository as the
+root of the website, so when it is built locally it will see all pages as being
+inside a "docs" folder, and therefore in the "docs" category in the left
+navigation bar and page URLs.
+
+On the other hand the root of the website built and served with
+[GitHub Pages](https://carlosperate.github.io/jekyll-theme-rtd) is the
+"docs" folder, so the left navigation bar will show the child folder as
+categories and the URLs will be different.
+
+For updating the theme documentation it can be useful to build and sever the
+docs folder with the same configuration as GitHub Pages. Of course, this would
+mean that the theme used will be the current snapshot of `master` on GitHub
+instead of the local files, but that is not important to just preview the docs.
+
+To do this, add the following lines to the `docs/_config.yml` file:
+
+```yml
+plugins:
+  - jekyll-remote-theme
 ```
 
-Application Insights can be added with the following configuration in `_config.yaml`
+Then execute Jekyll from the docs folder:
 
-```yaml
-tracker:
-  application_insights: "<YOUR APPLICATION INSIGHTS CONNECTION STRING>"
+```
+$ vagrant up --no-provision
+$ vagrant ssh
+(ssh session) $ cd /vagrant/docs
+(ssh session) $ bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling
 ```
 
-## Disqus comments
+### Build the docs with MkDocs for comparison
 
-[Disqus](https://disqus.com/) comments can be enabled by adding the following configuration in `_config.yaml`:
+As this theme has been ported from the MkDocs port, it can be useful to run
+MkDocs on the documentation markdown file and compare its output to the Jekyll
+output. A `mkdocs.yml` file is included to configure the project.
 
-```yaml
-disqushandler: "<YOUR DISQUS SHORTNAME>"
+Pipenv has been used to manage Python dependencies:
+
+```bash
+$ pip install pipenv
+$ pipenv install
+$ pipenv run mkdocs build
+$ cd _site_mkdocs
+$ pipenv run python -m http.server 8080
 ```
 
-## Jekyll collections
 
-Jekyll's [collections][15] is supported to organize the pages in a more fine-grained manner, e.g.,
+## 👨‍👩‍👧‍👦 Contributing
 
-```yaml
-collections:
-  pages:
-    output: true
-    sort_by: date
-    permalink: /:collection/:year-:month-:day-:title:output_ext
-  others:
-    output: true
-    sort_by: date
-    permalink: /:collection/:year-:month-:day-:title:output_ext
-```
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/carlosperate/jekyll-theme-rtd.
 
-An optional `ordered_collections` key can be added to `_config.yaml` to control the order of collections in the sidebar:
+This project is intended to be a safe, welcoming space for collaboration, and
+contributors are expected to adhere to the
+[Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-```yaml
-ordered_collections:
-  - posts
-  - pages
-  - others
-```
 
-If not specified, the order of collections would be decided by Jekyll. Note that the key `posts` is a special collection
-that indicates the `_posts` pages of Jekyll.
+## ⚖️ License
 
-## Extra StyleSheet or Javascript elements
+The original theme is from
+[Read The Docs](https://github.com/readthedocs/sphinx_rtd_theme). Copyright ©
+2013-2018 Dave Snider, Read the Docs, Inc. & contributors, and released under
+the [MIT License](LICENSE-rtd).
 
-You can add extra CSS or JavaScript references using configuration collections:
+This theme is based on the [MkDocs](https://github.com/mkdocs/mkdocs)
+[`readthedocs` port](https://github.com/mkdocs/mkdocs/tree/1.0.4/mkdocs/themes/readthedocs).
+Copyright © 2014, Tom Christie, all rights reserved, and released under the
+[BSD 2-Clause "Simplified" License](LICENSE-mkdocs).
 
-- extra_css: for additional style sheets. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_header_js: for additional scripts to be included in the `<head>` tag, after the `extra_css` has been added. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-- extra_footer_js: for additional scripts to be included at the end of the HTML document, just before the site tracking script. If the url does not start by http, the path must be relative to the root of the site, without a starting `/`.
-
-## Customizing font settings
-
-The fonts can be customized by modifying the `.book.font-family-0` and `.book.font-family-1` entry in [`./assets/gitbook/custom.css`][10],
-
-```css
-.book.font-family-0 {
-    font-family: Georgia, serif;
-}
-.book.font-family-1 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-```
-
-## Tips, Warnings and Dangers blocks
-
-The jekyll-gitbook theme supports customized kramdown attributes (`{: .block-tip }`, `{: .block-warning }`,
-`{: .block-danger }`) like that displayed in [the discord.js website][11]. The marker can be used like
-
-```markdown
-> ##### TIP
->
-> This guide is last tested with @napi-rs/canvas^0.1.20, so make sure you have
-> this or a similar version after installation.
-{: .block-tip }
-```
-
-Rendered page can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-06-30-tips_warnings_dangers.html)
-
-## Cover image inside pages
-
-The jekyll-gitbook theme supports adding a cover image to a specific page by adding
-a `cover` field to the page metadata:
-
-```diff
-  ---
-  title: Page with cover image
-  author: Tao He
-  date: 2022-05-24
-  category: Jekyll
-  layout: post
-+ cover: /assets/jekyll-gitbook/dinosaur.gif
-  ---
-```
-
-The effect can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2022-05-24-page_cover.html)
-
-## Diagrams with mermaid.js
-
-This jekyll-theme supports [mermaid.js](https://mermaid.js.org/) to render diagrams
-in markdown.
-
-To enable the mermaid support, you need to set `mermaid: true` in the front matter
-of your post.
-
-```markdown
----
-mermaid: true
----
-```
-
-The example can be previewed from
-
-[https://sighingnow.github.io/jekyll-gitbook/jekyll/2023-08-31-mermaid.html](https://sighingnow.github.io/jekyll-gitbook/jekyll/2023-08-31-mermaid.html)
-
-## License
-
-This work is open sourced under the Apache License, Version 2.0.
-
-Copyright 2019 Tao He.
-
-[1]: https://pages.github.com
-[2]: https://pages.github.com/themes
-[3]: https://github.com/sighingnow/jekyll-gitbook/fork
-[4]: https://github.com/allejo/jekyll-toc
-[5]: https://github.com/gitbook-plugins/gitbook-plugin-search-pro
-[6]: https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes
-[7]: https://analytics.google.com/analytics/web/
-[8]: https://www.cnzz.com/
-[9]: https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-[10]: https://github.com/sighingnow/jekyll-gitbook/blob/master/gitbook/custom.css
-[11]: https://discordjs.guide/popular-topics/canvas.html#setting-up-napi-rs-canvas
-[12]: https://rubygems.org/gems/jekyll-remote-theme
-[13]: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-[14]: https://github.com/sighingnow/jekyll-gitbook/blob/master/_config.yml
-[15]: https://jekyllrb.com/docs/collections/
+The theme modifications to port it Jekyll can be seen
+[here](https://github.com/carlosperate/jekyll-theme-rtd/compare/dddce9f13fde24c03aee4533158c43091120d47e...master).
+This and all new features are released under the
+[BSD 2-Clause "Simplified" License](LICENSE).
