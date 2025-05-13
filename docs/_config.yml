@@ -1,15 +1,10 @@
-title: Read The Docs Jekyll Theme
-description: Port of the Read the Docs theme to Jekyll to use with GitHub Pages.
+title: mc1.12 开发入门分享
+description: 
 #remote_theme: carlosperate/jekyll-theme-rtd
 remote_theme: just-the-docs
 
-# Theme settings:
-site_author: Carlos Pereira Atencio
-repo_url: "https://github.com/carlosperate/jekyll-theme-rtd"
-edit_on_github: true
-github_docs_folder: true
-sticky_navigation: true
-prev_next_buttons_location: bottom
-search_enabled: true
-hljs_style: github-gist
-collapse_navigation: false
+# 显示层级
+navigation_depth: 3
+# 默认展开
+collapse_navigation: true
+
