@@ -1,35 +1,17 @@
-# RunDocs: Documentation Simplified
-![](https://github.com/rundocs/rundocs.io/workflows/ns/badge.svg)
-![](https://www.codefactor.io/repository/github/rundocs/jekyll-rtd-theme/badge)
-![](https://img.shields.io/gem/dt/jekyll-rtd-theme)
-![](https://data.jsdelivr.com/v1/package/gh/rundocs/jekyll-rtd-theme/badge)
+---
+order: 2
+---
 
-[RunDocs](https://rundocs.io) extends the continuous integration documentation capabilities of [GitHub pages](https://pages.github.com/) for everyone!
 
-The documents are stored in your own GitHub repository, GitHub pages will automatically build your docs so your code and documentation are always up-to-date.
 
-Use markdown to write documents and leave the rest to us, and we provide you with free domain name!
+layout: default
+title: 前言
+nav_order: 1
 
-## Features
-- Automatically generate sidebar based on directory
-- Only need one file `_config.yml` to configure site
-- Search engine optimized
-- Multi-language supported
-- Document search (RegExp supported)
-- Support third-party comments
-- Google, Baidu, CNZZ Analytics support
+# 前言
 
-## Quick start
-The new repository will generate with the same files and folders from [rundocs/starter-slim][slim], You can [preview the theme to see what it looks like][slim-preview], or even [generate it today][slim-generate].
+最近学习弄了一些mod，就像着分享一下经验
 
-[slim]: https://github.com/rundocs/starter-slim/
-[slim-preview]: https://rundocs.github.io/starter-slim/
-[slim-generate]: https://github.com/rundocs/starter-slim/generate
+我是有java经验，只能以mod开发新人角度，而不是java入门，没编程基础的可能看不懂
 
-## External resources
-
-Here are some external resources to help you learn more about Jekyll.
-
-- [Jekyll documentation](https://jekyllrb.com/)
-- [Working with GitHub Pages](https://docs.github.com/en/github/working-with-github-pages)
-- [Jekyll-rtd-theme test documentation for technical writers](https://rundocs.github.io/jekyll-rtd-theme/)
+版本是1.12
