@@ -25,8 +25,8 @@ exclude:
   - Gemfile.lock
 
   
-site_author: Bbscncom
-repo_url: 'https://github.com/bbscncom/mcmoddevShare'
+# site_author: Bbscncom
+# repo_url: 'https://github.com/bbscncom/mcmoddevShare'
 # logo: ''
 # site_favicon: ''
 # sticky_navigation: true
