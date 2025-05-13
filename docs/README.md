@@ -1,10 +1,11 @@
 ---
 layout: default
-title: 前言
 nav_order: 1
 ---
 
 
+
+# 前言
 
 最近学习弄了一些mod，就像着分享一下经验
 
