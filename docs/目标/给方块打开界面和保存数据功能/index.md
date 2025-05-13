@@ -17,7 +17,7 @@ has_children: true
 
 **定义显示什么**
 
-这里的核心类是GuiScreen和GuiScreen
+这里的核心类是GuiScreen和Container
 
 
 
