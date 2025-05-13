@@ -3,8 +3,7 @@ description: 版本1.12
 #remote_theme: carlosperate/jekyll-theme-rtd
 remote_theme: just-the-docs/just-the-docs
 
-just_the_docs:
-  children: auto
+
 
 exclude:
   # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
@@ -36,8 +35,3 @@ exclude:
   - startserver.bat
 sass:
   style: compressed
-  
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
