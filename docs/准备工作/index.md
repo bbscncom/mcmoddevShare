@@ -1,11 +1,9 @@
 ---
 layout: default
+title: 准备工作
 nav_order: 2
 ---
 
-
-
-# 准备工作
 
 https://harbinger.covertdragon.team/
 

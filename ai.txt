@@ -1,0 +1,21 @@
+扫描当前文件夹的所有md文件,深度为1
+每一个文件判断: 以h1-6作为逻辑块,1-6级 .可以有多个h1
+根据文件生成符合just-the-docs结构的一系列md
+h1的内容到h2为止, h2到h3 ,以此类推
+文件结构
+一系列md文件,py脚本
+└── docs/
+    ├── index.md      # 网站首页不用管
+    ├── usage/          # h1的名字
+    │   ├── index.md  # h1的内容
+    │   ├── basic_usage.md  #h2的名字和他的内容
+    │   └── advanced_usage.md #另一个h2的名字内容
+因为没有h3,所以h2就不需要创建文件夹,如果有h3 h4 h5都是这个逻辑生成
+
+layout: default
+title: 目标
+nav_order: 4
+原始md文件是有front的需要注意,h1就沿用原始md文件的nav_order, h2的nav_order就是在md中出现的顺序.需要正确设置parent
+有children的层级需要添加has_children: true
+需要将子页面的h级别重置到h1开始
+代码块里面的# 不要识别为h1-6. 

@@ -1,52 +1,12 @@
 ---
 layout: default
-nav_order: 3
+title: 添加CensoredASM mod
+parent: 环境配置
+nav_order: 2
 ---
 
+# 添加CensoredASM mod
 
-
-# 环境配置
-
-## 启动
-
-TemplateDevEnv下载后idea启动
-
-
-
-配置idea的gradle jdk版本 17
-
-
-
-根目录gradle.properties：
-	org.gradle.java.home=	jdk文件路径，版本17
-
-​	use_modern_java_syntax=true	使用jdk高版本语法，编译时成转成8, 在借鉴其他mod的时候很多都是用到高版本语法的
-
-
-
-右上角配置一下启动配置，有一个runclient，设置gradle project后直接运行
-
-
-
-
-
-在你没有运行runclient前，你会看到mc的类都是缺失的
-
-runclient过程中，有一个gradle task是设置开发环境，运行后会看到生成了mc的相关java文件。
-
-运行过程中编译混淆相关的工作自动完成
-
-
-
-顺利的话就启动完成了，如果你使用了forge官网下载的环境，或者网上找的其他教程，可能会遇到很多问题。
-
-gradle相关的，jdk版本的，教程版本对不上的
-
-使用了TemplateDevEnv后，问题少了很多
-
-
-
-## 添加CensoredASM mod
 
 ```bash
 #崩溃返回主菜单mod而不是整个游戏崩掉，当然不是百分百生效，有时候还是会崩掉
