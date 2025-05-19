@@ -1,5 +1,5 @@
-git pull
+proxychains git pull
 git add .
 git commit -m "%date%"
-git push 
+proxychains git push 
 pause
