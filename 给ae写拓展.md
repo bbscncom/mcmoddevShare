@@ -135,7 +135,7 @@ public boolean allowInsert(IItemHandler inv, int slot, ItemStack itemstack) {
 }
 ~~~
 
-这核心就是IUpgradeModule, 只有一个方法就是getType, 得了绕回来破案了
+这核心就是IUpgradeModule, 这个接口只有一个方法就是getType, 得了绕回来破案了
 
 也就是说想要新的升级卡可以放进去, 那就必须继承这个类修改这个方法,
 
@@ -171,7 +171,7 @@ public boolean allowInsert(IItemHandler inv, int slot, ItemStack itemstack) {
 
 ## 给升级卡添加功能
 
-功能是定时判断 所有有这张新内存卡的ae接口, 循环所有样板, 判断数量, 发送合成请求
+功能是定时判断 循环ae里所有ae接口, 所有有这张新内存卡的ae接口, 循环所有样板, 判断数量, 发送合成请求
 
 **考虑定时器怎么加**
 
@@ -289,6 +289,9 @@ for (IAEItemStack stack : stacks) {
     IAEItemStack copy = stack.copy();
     copy.setStackSize(shouldCraft);
     //合成封装, 其实还是grid的使用
+    //里面有两个步骤, 一个是创建job就是我们游戏里合成数量下一步计算合成所需材料
+    //然后用这个job 去实际创建任务, 这时会返回一个link
+    //总之就是通过返回的job 和link判断任务执行状态, 决定下一步干嘛
     this.craftingTracker.requestCrafting(copy, world, grid, crafting, this.actionSource);
 }
 ~~~
@@ -305,4 +308,12 @@ for (IAEItemStack stack : stacks) {
 
 不知道有没有人有这种感觉, 不是实际想问题的时候逻辑清晰, 通过线索一步步很快找到下一步的关键, 但当实际解决问题时, 脑子一团浆糊根本动不了. 
 
-对于我个人来说有一个很明显的例子就是 高中坐着的时候脑袋一团浆糊, 但一旦休息时间站起来 整个状态就好起来了, 没走一步脑子就越清醒 思路一下就清晰了. 
+对于我个人来说有一个很明显的例子就是 高中坐着的时候脑袋一团浆糊, 但一旦休息时间站起来 整个状态就好起来了, 没走一步脑子就越清醒 想不通的问题思路一下就清晰了. 
+
+
+
+
+
+
+
+# 
