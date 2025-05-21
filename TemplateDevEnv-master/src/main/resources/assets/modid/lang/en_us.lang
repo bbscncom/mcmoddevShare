@@ -1,0 +1,8 @@
+#item.modid.keeper.name=Keeper Card
+#item.modid.keeper.desc=Keep Item Number
+
+#block是tile前缀，item是item前缀。modid就是mod名字。blocknew是注册时填的。name是mc内部自动添加的。
+#这里设置mc物品的翻译名称，如果是zh_cn.lang 就是中文 控制器
+tile.modid.blocknew.name=Controller
+#游戏里创造页面的名字，creativeTabs创建时候填了modid字符串
+itemGroup.modid=Keeper Card
